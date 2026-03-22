@@ -80,12 +80,14 @@
     background: var(--bg);
     color: var(--text);
     height: 40px;
-    width: 44px;
+    width: auto;
     display:flex; align-items:center; justify-content:center;
     padding: 0;
-    font-size: 16px;
+    font-size: 13px;
     margin-left: -4px;
-    filter: grayscale(1) contrast(1.4);
+    width: auto;
+    padding: 0 10px;
+    filter: none;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
@@ -205,7 +207,7 @@
     <a href="#how" class="nav-link">How it works</a>
     <a href="#proof" class="nav-link">What you get</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">Dark mode</span></button>
     <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="nav-btn" target="_blank">Free walkthrough</a>
   </div>
 </nav>
@@ -302,7 +304,7 @@
   root.setAttribute('data-theme', saved || 'light');
   function sync() {
     const dark = root.getAttribute('data-theme') === 'dark';
-    document.getElementById('themeIcon').textContent = dark ? '✺' : '☾';
+    document.getElementById('themeIcon').textContent = dark ? 'Light mode' : 'Dark mode';
 
   }
   function toggleTheme() {
