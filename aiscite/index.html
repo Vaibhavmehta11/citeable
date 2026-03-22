@@ -1,54 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aiscite — AI Visibility Audits</title>
-<meta name="description" content="Aiscite helps law firms, dental practices, and professional services firms measure and improve AI visibility across ChatGPT, Gemini, Perplexity, Claude, and Copilot.">
-<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Aiscite helps law firms, dental practices, med spas, and professional services firms improve how ChatGPT, Gemini, and Perplexity cite their business.">
+<meta name="keywords" content="AI visibility audit, AI citation optimization, generative engine optimization, GEO, answer engine optimization, AI search visibility">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Aiscite",
+  "description": "Aiscite provides AI visibility audits and AI citation optimization for professional services firms.",
+  "serviceType": [
+    "AI visibility audit",
+    "AI citation optimization",
+    "Generative engine optimization",
+    "Answer engine optimization"
+  ],
+  "areaServed": "Canada",
+  "url": "https://vaibhavmehta11.github.io/citeable/aiscite/"
+}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --bg: #ffffff;
-    --bg-soft: #f7f7f7;
-    --bg-elevated: #fbfbfb;
-    --text: #0b0b0b;
-    --muted: #6b6b6b;
-    --muted-2: #949494;
-    --border: #e7e7e7;
-    --accent: #111111;
-    --accent-2: #f1f1f1;
-    --success: #18a957;
-    --warning-bg: #fff2d6;
-    --warning-text: #8b5e00;
-    --max: 1120px;
-    --content: 760px;
-    --radius: 18px;
-    --radius-sm: 12px;
-    --shadow: 0 1px 2px rgba(0,0,0,0.03);
+    --bg2: #f7f7f7;
+    --bg3: #f1f1f1;
+    --text: #111111;
+    --muted: #686868;
+    --border: #e6e6e6;
+    --soft: #fafafa;
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
-
-  html[data-theme="dark"] {
-    --bg: #0c0c0d;
-    --bg-soft: #121315;
-    --bg-elevated: #17181b;
-    --text: #f5f5f5;
-    --muted: #a0a0a7;
-    --muted-2: #7e7e86;
-    --border: #232428;
-    --accent: #f5f5f5;
-    --accent-2: #1c1d21;
-    --success: #31c46c;
-    --warning-bg: #2d2413;
-    --warning-text: #f6c96a;
-    --shadow: 0 1px 2px rgba(0,0,0,0.18);
-  }
-
   html { scroll-behavior: smooth; }
   body {
     font-family: var(--font);
@@ -57,782 +44,572 @@
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    transition: background .2s ease, color .2s ease;
   }
-
-  a { color: inherit; }
-
   nav {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    backdrop-filter: blur(14px);
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-inner {
-    max-width: var(--max);
-    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 28px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
   }
-
-  .brand {
+  .nav-logo {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 800;
     font-size: 16px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    text-decoration: none;
+    letter-spacing: -0.4px;
   }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .nav-links a {
-    text-decoration: none;
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-link {
     color: var(--muted);
+    text-decoration: none;
     font-size: 14px;
     font-weight: 500;
   }
-
-  .nav-links a:hover { color: var(--text); }
-
-  .theme-toggle {
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--text);
-    padding: 8px 12px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .nav-cta, .btn-primary, .btn-secondary {
+  .nav-link:hover { color: var(--text); }
+  .nav-btn, .btn-dark, .btn-white {
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: opacity .15s ease, transform .15s ease, background .15s ease;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: opacity 0.15s, transform 0.15s;
+    display: inline-block;
   }
-
-  .nav-cta, .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    padding: 12px 18px;
-    font-size: 14px;
+  .nav-btn, .btn-dark {
+    background: var(--text);
+    color: #fff;
   }
-
-  .btn-primary { padding: 14px 22px; font-size: 15px; }
-
-  .btn-secondary {
-    border: 1px solid var(--border);
+  .nav-btn { padding: 8px 16px; font-size: 14px; }
+  .btn-dark { padding: 13px 24px; font-size: 15px; }
+  .btn-dark:hover, .nav-btn:hover, .btn-white:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-ghost {
+    text-decoration: none;
     color: var(--text);
+    border: 1px solid var(--border);
     background: transparent;
-    padding: 14px 22px;
+    padding: 13px 24px;
+    border-radius: 10px;
     font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
   }
-
-  .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover, .theme-toggle:hover { opacity: 0.88; }
-  .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
-
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-
+  .btn-ghost:hover { background: var(--bg2); }
   .hero {
-    padding: 96px 0 72px;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 150px 28px 110px;
+    text-align: center;
   }
-
-  .hero-inner {
-    max-width: 840px;
-  }
-
-  .eyebrow {
+  .hero-tag {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 6px 14px;
     border: 1px solid var(--border);
-    background: var(--bg-elevated);
-    color: var(--muted);
-    padding: 8px 14px;
     border-radius: 999px;
+    color: var(--muted);
     font-size: 13px;
     font-weight: 600;
-    margin-bottom: 28px;
+    margin-bottom: 34px;
   }
-
-  .eyebrow-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    background: var(--success);
+  .hero-tag span {
+    width: 7px; height: 7px; border-radius: 50%; background: #22c55e; display: inline-block;
   }
-
-  h1 {
-    font-size: clamp(40px, 6vw, 72px);
-    line-height: 1.02;
-    letter-spacing: -0.06em;
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 66px);
+    line-height: 1.04;
+    letter-spacing: -2.8px;
     font-weight: 800;
-    max-width: 900px;
     margin-bottom: 22px;
   }
-
-  .hero-sub {
-    max-width: 700px;
-    font-size: clamp(18px, 2vw, 21px);
+  .hero p {
+    max-width: 620px;
+    margin: 0 auto 38px;
     color: var(--muted);
-    line-height: 1.72;
-    margin-bottom: 30px;
+    font-size: 19px;
+    line-height: 1.75;
   }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 22px;
-  }
-
-  .hero-note {
-    color: var(--muted-2);
+  .hero-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .hero-micro {
+    margin-top: 18px;
     font-size: 13px;
-    font-weight: 500;
+    color: #8b8b8b;
   }
-
-  .platform-strip {
+  .platforms {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 20px 0;
-    margin-bottom: 24px;
+    padding: 26px 28px;
+    text-align: center;
   }
-
-  .platform-strip-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 28px;
-    align-items: center;
-  }
-
-  .platform-label {
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--muted-2);
-  }
-
-  .platform-pill {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--muted);
-  }
-
-  .section {
-    padding: 76px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .section-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
-    gap: 32px;
-  }
-
-  .section-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--muted-2);
-    font-weight: 700;
-    padding-top: 6px;
-  }
-
-  .section h2 {
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.08;
-    letter-spacing: -0.05em;
-    margin-bottom: 14px;
-  }
-
-  .section p.lead {
-    color: var(--muted);
-    font-size: 17px;
-    max-width: 700px;
-    margin-bottom: 30px;
-  }
-
-  .stack {
-    display: grid;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: var(--bg-elevated);
-    box-shadow: var(--shadow);
-  }
-
-  .item {
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 18px;
-    padding: 26px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .item:last-child { border-bottom: 0; }
-  .item-icon {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-  .item h3 {
-    font-size: 17px;
-    line-height: 1.3;
-    margin-bottom: 6px;
-    letter-spacing: -0.02em;
-  }
-  .item p {
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .steps {
-    display: grid;
-    gap: 0;
-  }
-
-  .step {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 16px;
-    padding: 26px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .step:last-child { border-bottom: 0; }
-  .step-num {
-    color: var(--muted-2);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    padding-top: 4px;
-  }
-  .step h3 {
-    font-size: 20px;
-    margin-bottom: 6px;
-    letter-spacing: -0.03em;
-  }
-  .step p {
-    color: var(--muted);
-    font-size: 15px;
-  }
-
-  .score-shell {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 32px;
-    box-shadow: var(--shadow);
-  }
-
-  .score-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-  }
-
-  .score-meta h3 {
-    font-size: 24px;
-    letter-spacing: -0.04em;
-    margin-bottom: 4px;
-  }
-
-  .score-meta p {
-    font-size: 14px;
-    color: var(--muted);
-  }
-
-  .score-number-wrap {
-    text-align: right;
-  }
-
-  .score-number {
-    font-size: 72px;
-    line-height: 0.95;
-    letter-spacing: -0.08em;
-    font-weight: 800;
-  }
-
-  .score-caption {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 8px;
-  }
-
-  .score-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 10px;
-    border-radius: 999px;
-    margin-top: 10px;
-    font-size: 12px;
-    font-weight: 700;
-    background: var(--warning-bg);
-    color: var(--warning-text);
-  }
-
-  .score-bars {
-    display: grid;
-    gap: 14px;
-  }
-
-  .bar-row {
-    display: grid;
-    grid-template-columns: 170px 1fr 36px;
-    gap: 14px;
-    align-items: center;
-  }
-
-  .bar-label {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 600;
-  }
-
-  .bar-track {
-    position: relative;
-    height: 8px;
-    background: var(--accent-2);
-    border-radius: 999px;
-    overflow: hidden;
-  }
-
-  .bar-fill {
-    position: absolute;
-    inset: 0 auto 0 0;
-    background: var(--accent);
-    border-radius: 999px;
-  }
-
-  .bar-value {
-    text-align: right;
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 14px;
-  }
-
-  .proof-card {
-    text-decoration: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
-    background: var(--bg-elevated);
-    transition: transform .15s ease, border-color .15s ease, background .15s ease;
-  }
-
-  .proof-card:hover {
-    transform: translateY(-1px);
-    border-color: var(--muted-2);
-  }
-
-  .proof-tag {
+  .platforms p {
     font-size: 11px;
     font-weight: 700;
-    color: var(--muted-2);
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    letter-spacing: .08em;
-    margin-bottom: 10px;
+    color: #a8a8a8;
+    margin-bottom: 18px;
   }
-
-  .proof-name {
-    font-size: 17px;
+  .platforms-list {
+    display: flex; justify-content: center; gap: 38px; flex-wrap: wrap;
+  }
+  .platforms-list span { color: #b8b8b8; font-size: 14px; font-weight: 600; }
+  .section {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 96px 28px;
+  }
+  .section-sm {
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
     margin-bottom: 16px;
   }
-
-  .proof-score {
+  .section h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.8px;
+    margin-bottom: 14px;
+  }
+  .lead {
+    max-width: 620px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 42px;
+  }
+  .problem-list {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .problem-item {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 18px;
+    padding: 26px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
   }
-
-  .proof-score strong {
-    font-size: 36px;
-    letter-spacing: -0.06em;
-  }
-
-  .proof-score span {
-    color: var(--muted);
-    font-size: 13px;
-  }
-
-  .proof-link {
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .who-grid {
+  .problem-item:last-child { border-bottom: none; }
+  .problem-item:hover { background: var(--soft); }
+  .problem-icon { font-size: 18px; margin-top: 2px; }
+  .problem-text h3 { font-size: 17px; font-weight: 700; margin-bottom: 5px; }
+  .problem-text p { font-size: 14px; color: var(--muted); }
+  .steps { border-top: 1px solid var(--border); }
+  .step-item {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-num {
+    font-size: 13px;
+    font-weight: 800;
+    color: #b2b2b2;
+    padding-top: 3px;
+  }
+  .step-content h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.4px; }
+  .step-content p { font-size: 15px; color: var(--muted); }
+  .industries {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .industry-box {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    background: var(--bg);
+  }
+  .industry-box span {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .score-card {
+    background: linear-gradient(180deg, #fbfbfb 0%, #f4f4f4 100%);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 42px;
+  }
+  .score-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .score-meta h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.6px; }
+  .score-meta p { font-size: 14px; color: var(--muted); margin-top: 3px; }
+  .score-big { font-size: 64px; line-height: 1; font-weight: 800; letter-spacing: -3px; }
+  .score-of { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .score-badge {
+    margin-top: 8px;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #fff3cd;
+    color: #8a5b00;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .score-summary {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    max-width: 620px;
+  }
+  .score-bars { display: flex; flex-direction: column; gap: 14px; }
+  .bar-row { display: grid; grid-template-columns: 170px 1fr 36px; gap: 12px; align-items: center; }
+  .bar-label { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .bar-track { height: 5px; background: #e4e4e4; border-radius: 999px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--text); border-radius: 999px; }
+  .bar-val { font-size: 13px; font-weight: 700; text-align: right; }
+  .proof-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .proof-stat {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: var(--bg);
+    min-width: 180px;
+  }
+  .proof-stat strong {
+    font-size: 26px;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+  }
+  .proof-stat span { font-size: 13px; color: var(--muted); }
+  .reports-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 14px;
   }
-
-  .who-card, .faq-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 20px;
-    background: var(--bg-elevated);
-  }
-
-  .who-card h3, .faq-card h3 {
-    font-size: 16px;
-    margin-bottom: 6px;
-    letter-spacing: -0.02em;
-  }
-
-  .who-card p, .faq-card p {
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .faq-list {
-    display: grid;
-    gap: 12px;
-  }
-
-  .cta {
-    padding: 84px 0 24px;
-  }
-
-  .cta-box {
-    background: var(--accent);
-    color: var(--bg);
-    border-radius: 28px;
-    padding: 52px 36px;
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .cta-box h2 {
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.04;
-    letter-spacing: -0.06em;
-    max-width: 520px;
-    margin-bottom: 10px;
-  }
-
-  .cta-box p {
-    color: color-mix(in srgb, var(--bg) 72%, transparent);
-    font-size: 16px;
-    max-width: 520px;
-  }
-
-  .btn-light {
+  .report-card {
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 22px;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
     background: var(--bg);
-    color: var(--accent);
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 700;
-    white-space: nowrap;
+    display: block;
   }
-
-  .footer {
-    padding: 28px 0 40px;
-    color: var(--muted-2);
-    font-size: 13px;
+  .report-card:hover { background: var(--soft); border-color: #cfcfcf; }
+  .report-tag { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 8px; }
+  .report-name { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 14px; }
+  .report-score-row { display: flex; align-items: baseline; gap: 6px; }
+  .report-score-num { font-size: 34px; font-weight: 800; letter-spacing: -1.2px; }
+  .report-score-label { font-size: 13px; color: var(--muted); }
+  .report-link { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+  .faq-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-item h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .faq-item p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 700px;
+  }
+  .cta-block {
+    margin: 0 28px 80px;
+    padding: 76px 32px;
+    background: #101010;
+    color: #fff;
+    border-radius: 24px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .cta-block p {
+    color: #8e8e8e;
+    max-width: 460px;
+    margin: 0 auto 30px;
+    font-size: 16px;
+  }
+  .btn-white {
+    background: #fff;
+    color: #101010;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  .cta-note { margin-top: 14px; font-size: 13px; color: #666; }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 28px;
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
   }
+  .footer-logo { font-size: 15px; font-weight: 800; }
+  footer p { font-size: 13px; color: #9d9d9d; }
 
-  .schema-copy {
-    display: none;
+  @media (max-width: 720px) {
+    .industries, .reports-grid { grid-template-columns: 1fr 1fr; }
+    .bar-row { grid-template-columns: 1fr; gap: 8px; }
+    .bar-val { text-align: left; }
   }
-
-  @media (max-width: 840px) {
-    .section-grid { grid-template-columns: 1fr; gap: 18px; }
-    .section-label { padding-top: 0; }
-    .proof-grid, .who-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-  }
-
-  @media (max-width: 640px) {
-    .nav-inner, .wrap { padding: 0 18px; }
-    .hero { padding: 72px 0 58px; }
-    .section { padding: 58px 0; }
-    .score-shell, .cta-box { padding: 24px; }
-    .bar-row { grid-template-columns: 1fr 38px; }
-    .bar-label { display: none; }
-    .score-number { font-size: 56px; }
-    .theme-toggle { padding: 8px 10px; }
-    .nav-cta { display: none; }
+  @media (max-width: 560px) {
+    .nav-right .nav-link { display: none; }
+    .hero { padding-top: 130px; }
+    .industries, .reports-grid { grid-template-columns: 1fr; }
+    .score-card { padding: 28px; }
+    .cta-block { margin: 0 16px 60px; padding: 56px 22px; }
   }
 </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-inner">
-      <a href="#top" class="brand">Aiscite</a>
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#how">How it works</a>
-          <a href="#proof">Examples</a>
-          <a href="#faq">FAQ</a>
-        </div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">Dark</button>
-        <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="nav-cta" target="_blank">Get free audit</a>
+<nav>
+  <a href="/" class="nav-logo">Aiscite</a>
+  <div class="nav-right">
+    <a href="#how" class="nav-link">How it works</a>
+    <a href="#proof" class="nav-link">Examples</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="nav-btn" target="_blank">Get free audit</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag"><span></span> AI visibility audits for professional services</div>
+  <h1>If ChatGPT cannot cite you, clients will not find you.</h1>
+  <p>Aiscite shows how ChatGPT, Gemini, Perplexity, Claude, and Copilot see your business — then gives you the exact fixes needed to improve your AI search visibility and citation rate.</p>
+  <div class="hero-actions">
+    <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="btn-dark" target="_blank">Get your free audit</a>
+    <a href="#proof" class="btn-ghost">See sample reports</a>
+  </div>
+  <div class="hero-micro">Free 10-minute walkthrough. Results delivered in 48 hours.</div>
+</div>
+
+<div class="platforms">
+  <p>We audit your visibility across</p>
+  <div class="platforms-list">
+    <span>ChatGPT</span>
+    <span>Gemini</span>
+    <span>Perplexity</span>
+    <span>Claude</span>
+    <span>Copilot</span>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-sm">The problem</p>
+  <h2>AI search is replacing Google faster than most firms realize.</h2>
+  <p class="lead">AI assistants do not rank websites the way Google does. They recommend businesses they can understand, trust, and cite. If your firm is not structured for AI citation, you are losing demand before a client ever lands on your website.</p>
+  <div class="problem-list">
+    <div class="problem-item">
+      <div class="problem-icon">🔍</div>
+      <div class="problem-text">
+        <h3>AI models cannot read your site clearly</h3>
+        <p>Your website may look polished to humans while still sending weak signals to ChatGPT, Gemini, and Perplexity.</p>
       </div>
     </div>
-  </nav>
-
-  <main id="top">
-    <section class="hero wrap">
-      <div class="hero-inner">
-        <div class="eyebrow"><span class="eyebrow-dot"></span>AI visibility audits for law firms, dental practices, and professional services</div>
-        <h1>If AI cannot cite you, clients will not find you.</h1>
-        <p class="hero-sub">Aiscite measures how ChatGPT, Gemini, Perplexity, Claude, and Copilot understand your business — then shows you exactly what to fix to become more visible in AI search.</p>
-        <div class="hero-actions">
-          <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="btn-primary" target="_blank">Get your free AI audit</a>
-          <a href="#proof" class="btn-secondary">See sample reports</a>
-        </div>
-        <p class="hero-note">Free audit · 48 hour turnaround · No developer needed</p>
+    <div class="problem-item">
+      <div class="problem-icon">📉</div>
+      <div class="problem-text">
+        <h3>Competitors are winning silent recommendations</h3>
+        <p>Every time AI names another firm instead of you, that lead disappears before you even know it existed.</p>
       </div>
-    </section>
-
-    <section class="platform-strip">
-      <div class="wrap platform-strip-inner">
-        <div class="platform-label">Audited across</div>
-        <div class="platform-pill">ChatGPT</div>
-        <div class="platform-pill">Gemini</div>
-        <div class="platform-pill">Perplexity</div>
-        <div class="platform-pill">Claude</div>
-        <div class="platform-pill">Copilot</div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">⏳</div>
+      <div class="problem-text">
+        <h3>Early authority compounds over time</h3>
+        <p>Businesses that establish citation authority now are more likely to become default recommendations later.</p>
       </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="section-grid">
-        <div class="section-label">The problem</div>
-        <div>
-          <h2>AI search is here. Most businesses are invisible to it.</h2>
-          <p class="lead">Google rankings are no longer enough. AI assistants now recommend businesses directly. If your site is not structured to be cited, you are losing clients before they ever reach your website.</p>
-          <div class="stack">
-            <div class="item">
-              <div class="item-icon">🔍</div>
-              <div><h3>AI cannot read your website properly</h3><p>Your site may look polished to humans while still being weak for AI parsing, citation, and recommendation.</p></div>
-            </div>
-            <div class="item">
-              <div class="item-icon">📉</div>
-              <div><h3>Competitors are being cited instead</h3><p>Every AI recommendation that names another firm instead of you is a lead you never see.</p></div>
-            </div>
-            <div class="item">
-              <div class="item-icon">⏳</div>
-              <div><h3>The window is closing fast</h3><p>AI systems form trust patterns early. Businesses that establish authority now will have an advantage later.</p></div>
-            </div>
-            <div class="item">
-              <div class="item-icon">📊</div>
-              <div><h3>You do not know your score</h3><p>Most firms have no benchmark for AI visibility, no measurement framework, and no clear plan to improve it.</p></div>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">📊</div>
+      <div class="problem-text">
+        <h3>Most firms do not know where they stand</h3>
+        <p>No benchmark. No score. No plan. Aiscite gives you all three.</p>
       </div>
-    </section>
-
-    <section class="section wrap" id="how">
-      <div class="section-grid">
-        <div class="section-label">How it works</div>
-        <div>
-          <h2>Three steps. 48 hours. Clear action plan.</h2>
-          <p class="lead">We audit your AI visibility, translate it into a score, and give you a prioritized fix list that improves AI citations and AI search visibility.</p>
-          <div class="steps">
-            <div class="step">
-              <div class="step-num">01</div>
-              <div><h3>We audit</h3><p>We test how major AI models interpret, cite, and recommend your business across core prompts relevant to your category and city.</p></div>
-            </div>
-            <div class="step">
-              <div class="step-num">02</div>
-              <div><h3>You get a report</h3><p>Your Aiscite AI Visibility Score, category breakdown, benchmark positioning, and the highest leverage issues holding you back.</p></div>
-            </div>
-            <div class="step">
-              <div class="step-num">03</div>
-              <div><h3>You get the fixes</h3><p>We provide direct content, structure, and schema recommendations so you can improve visibility without guessing what matters.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="section-grid">
-        <div class="section-label">Your score</div>
-        <div>
-          <h2>Every business gets an AI Visibility Score.</h2>
-          <p class="lead">Aiscite scores how understandable, citeable, and trustworthy your business appears to AI systems.</p>
-          <div class="score-shell">
-            <div class="score-top">
-              <div class="score-meta">
-                <h3>Bloor West Dental</h3>
-                <p>Toronto, ON · General and cosmetic dentistry</p>
-              </div>
-              <div class="score-number-wrap">
-                <div class="score-number">61</div>
-                <div class="score-caption">out of 100</div>
-                <div class="score-badge">Needs improvement</div>
-              </div>
-            </div>
-            <div class="score-bars">
-              <div class="bar-row"><div class="bar-label">AI Readability</div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><div class="bar-value">55</div></div>
-              <div class="bar-row"><div class="bar-label">Citation Signals</div><div class="bar-track"><div class="bar-fill" style="width:48%"></div></div><div class="bar-value">48</div></div>
-              <div class="bar-row"><div class="bar-label">Authority and Trust</div><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><div class="bar-value">70</div></div>
-              <div class="bar-row"><div class="bar-label">Content Depth</div><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><div class="bar-value">65</div></div>
-              <div class="bar-row"><div class="bar-label">Local Presence</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-value">72</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap" id="proof">
-      <div class="section-grid">
-        <div class="section-label">Proof</div>
-        <div>
-          <h2>See what a real AI visibility audit looks like.</h2>
-          <p class="lead">Live sample audits across dental, legal, and home services. These are the exact reports prospects receive.</p>
-          <div class="proof-grid">
-            <a class="proof-card" href="https://vaibhavmehta11.github.io/citeable/audit/bwd/" target="_blank">
-              <div class="proof-tag">Dental practice</div>
-              <div class="proof-name">Bloor West Dental</div>
-              <div class="proof-score"><strong>61</strong><span>/ 100</span></div>
-              <div class="proof-link">View full report →</div>
-            </a>
-            <a class="proof-card" href="https://vaibhavmehta11.github.io/citeable/audit/altima/" target="_blank">
-              <div class="proof-tag">Dental group</div>
-              <div class="proof-name">Altima Dental</div>
-              <div class="proof-score"><strong>58</strong><span>/ 100</span></div>
-              <div class="proof-link">View full report →</div>
-            </a>
-            <a class="proof-card" href="https://vaibhavmehta11.github.io/citeable/audit/diamond/" target="_blank">
-              <div class="proof-tag">Personal injury law</div>
-              <div class="proof-name">Diamond &amp; Diamond</div>
-              <div class="proof-score"><strong>54</strong><span>/ 100</span></div>
-              <div class="proof-link">View full report →</div>
-            </a>
-            <a class="proof-card" href="https://vaibhavmehta11.github.io/citeable/audit/junk/" target="_blank">
-              <div class="proof-tag">Home services</div>
-              <div class="proof-name">1-800-GOT-JUNK?</div>
-              <div class="proof-score"><strong>67</strong><span>/ 100</span></div>
-              <div class="proof-link">View full report →</div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="section-grid">
-        <div class="section-label">Who it is for</div>
-        <div>
-          <h2>Built for businesses that win trust before they win clicks.</h2>
-          <p class="lead">Aiscite is designed for local, high-trust service businesses where recommendations drive revenue.</p>
-          <div class="who-grid">
-            <div class="who-card"><h3>Law firms</h3><p>Improve visibility when people ask AI for the best lawyer, firm, or specialist in your market.</p></div>
-            <div class="who-card"><h3>Dental practices</h3><p>Make sure AI assistants understand your services, reputation, and local relevance.</p></div>
-            <div class="who-card"><h3>Med spas and clinics</h3><p>Strengthen trust signals and structured content where AI recommendation quality matters.</p></div>
-            <div class="who-card"><h3>Professional services</h3><p>Accountants, consultants, wealth advisors, and other firms competing on expertise and trust.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap" id="faq">
-      <div class="section-grid">
-        <div class="section-label">FAQ</div>
-        <div>
-          <h2>Common questions.</h2>
-          <p class="lead">This also gives search engines and AI models a cleaner understanding of what Aiscite does.</p>
-          <div class="faq-list">
-            <div class="faq-card"><h3>What is an AI visibility audit?</h3><p>An AI visibility audit measures how well models like ChatGPT, Gemini, and Perplexity understand, cite, and recommend your business.</p></div>
-            <div class="faq-card"><h3>How is this different from SEO?</h3><p>SEO helps you rank in search engines. Aiscite helps you become more citeable in AI-generated answers and AI search results.</p></div>
-            <div class="faq-card"><h3>Which AI models do you test?</h3><p>We currently audit visibility across ChatGPT, Gemini, Perplexity, Claude, and Copilot.</p></div>
-            <div class="faq-card"><h3>Do I need a developer?</h3><p>No. Most recommendations are content, structure, and clarity fixes. If code changes are needed, we identify them clearly.</p></div>
-            <div class="faq-card"><h3>How long does it take?</h3><p>Most audits are delivered within 48 hours after kickoff.</p></div>
-            <div class="faq-card"><h3>Who is Aiscite for?</h3><p>Aiscite is best suited to professional services firms where trust, expertise, and local discovery directly affect revenue.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta wrap">
-      <div class="cta-box">
-        <div>
-          <h2>Find out your AI Visibility Score.</h2>
-          <p>Free audit. 48 hour turnaround. No code. No setup. Clear next steps.</p>
-        </div>
-        <div>
-          <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="btn-light" target="_blank">Book your free 10 minute walkthrough</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="wrap footer">
-    <div>Aiscite</div>
-    <div>AI visibility audits for professional services</div>
-    <div>© 2026 Aiscite</div>
+    </div>
   </div>
+</div>
 
-  <div class="schema-copy">
-    Aiscite is an AI visibility audit service that helps law firms, dental practices, clinics, and professional services businesses improve AI citations, AI search visibility, generative engine optimization, answer engine optimization, and structured discoverability across ChatGPT, Gemini, Perplexity, Claude, and Copilot.
+<div class="section" style="padding-top:0;border-top:1px solid var(--border)">
+  <p class="section-sm" style="margin-top:96px">Who this is for</p>
+  <h2>Built for firms where trust and local visibility matter.</h2>
+  <p class="lead">We are starting with professional services where AI recommendations are already influencing real buying decisions.</p>
+  <div class="industries">
+    <div class="industry-box">Law firms<span>Personal injury, family, corporate</span></div>
+    <div class="industry-box">Dental practices<span>Single location and multi-location</span></div>
+    <div class="industry-box">Med spas<span>High intent local searches</span></div>
+    <div class="industry-box">Professional services<span>Advisors, consultants, specialists</span></div>
   </div>
+</div>
 
-<script>
-  const root = document.documentElement;
-  const toggle = document.getElementById('themeToggle');
-  const saved = localStorage.getItem('aiscite-theme');
-  if (saved === 'dark') {
-    root.setAttribute('data-theme', 'dark');
-    toggle.textContent = 'Light';
-  }
-  toggle.addEventListener('click', () => {
-    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('aiscite-theme', next);
-    toggle.textContent = next === 'dark' ? 'Light' : 'Dark';
-  });
-</script>
+<div class="section" id="how" style="padding-top:0;border-top:1px solid var(--border)">
+  <p class="section-sm" style="margin-top:96px">How it works</p>
+  <h2>Three steps. Clear output. No developer needed.</h2>
+  <p class="lead">You do not need new software, plugins, or a rebuild. We audit your current presence and give you practical, prioritized fixes.</p>
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>We run your AI visibility audit</h3>
+        <p>We test how major AI models interpret, summarize, and cite your business across five core dimensions.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>You get an Aiscite score and report</h3>
+        <p>Your report includes your AI Visibility Score, issue breakdown, category benchmark, and prioritized opportunities.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>We show you what to change</h3>
+        <p>Copy, structure, schema, and credibility signals — all translated into clear fixes your team can execute quickly.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;border-top:1px solid var(--border)">
+  <p class="section-sm" style="margin-top:96px">Your score</p>
+  <h2>A proprietary score built for AI search visibility.</h2>
+  <p class="lead">Aiscite measures how likely AI systems are to understand, trust, and cite your business. Here is a real audit example.</p>
+  <div class="score-card">
+    <div class="score-header">
+      <div class="score-meta">
+        <h3>Bloor West Dental</h3>
+        <p>Toronto, ON — General and Cosmetic Dentistry</p>
+      </div>
+      <div>
+        <div class="score-big">61</div>
+        <div class="score-of">Aiscite score out of 100</div>
+        <div class="score-badge">Below benchmark</div>
+      </div>
+    </div>
+    <p class="score-summary">Strong local reputation. Weak AI readability and citation structure. The business quality is there — the machine-readable presentation is not.</p>
+    <div class="score-bars">
+      <div class="bar-row"><span class="bar-label">AI readability</span><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><span class="bar-val">55</span></div>
+      <div class="bar-row"><span class="bar-label">Citation signals</span><div class="bar-track"><div class="bar-fill" style="width:48%"></div></div><span class="bar-val">48</span></div>
+      <div class="bar-row"><span class="bar-label">Authority and trust</span><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-val">70</span></div>
+      <div class="bar-row"><span class="bar-label">Content depth</span><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><span class="bar-val">65</span></div>
+      <div class="bar-row"><span class="bar-label">Local presence</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><span class="bar-val">72</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="proof" style="padding-top:0;border-top:1px solid var(--border)">
+  <div class="proof-intro" style="margin-top:96px">
+    <div>
+      <p class="section-sm">Proof</p>
+      <h2>Live audits, not mockups.</h2>
+      <p class="lead" style="margin-bottom:0">These are real examples of how Aiscite evaluates AI visibility across legal, dental, and home services businesses.</p>
+    </div>
+    <div class="proof-stat">
+      <strong>4</strong>
+      <span>live sample audits published</span>
+    </div>
+  </div>
+  <div class="reports-grid">
+    <a class="report-card" href="https://vaibhavmehta11.github.io/citeable/audit/bwd/" target="_blank">
+      <p class="report-tag">Dental practice</p>
+      <p class="report-name">Bloor West Dental</p>
+      <div class="report-score-row"><span class="report-score-num">61</span><span class="report-score-label">/ 100</span></div>
+      <p class="report-link">View full report →</p>
+    </a>
+    <a class="report-card" href="https://vaibhavmehta11.github.io/citeable/audit/altima/" target="_blank">
+      <p class="report-tag">Dental chain</p>
+      <p class="report-name">Altima Dental</p>
+      <div class="report-score-row"><span class="report-score-num">58</span><span class="report-score-label">/ 100</span></div>
+      <p class="report-link">View full report →</p>
+    </a>
+    <a class="report-card" href="https://vaibhavmehta11.github.io/citeable/audit/diamond/" target="_blank">
+      <p class="report-tag">Personal injury law</p>
+      <p class="report-name">Diamond and Diamond</p>
+      <div class="report-score-row"><span class="report-score-num">54</span><span class="report-score-label">/ 100</span></div>
+      <p class="report-link">View full report →</p>
+    </a>
+    <a class="report-card" href="https://vaibhavmehta11.github.io/citeable/audit/junk/" target="_blank">
+      <p class="report-tag">Home services</p>
+      <p class="report-name">1-800-GOT-JUNK?</p>
+      <div class="report-score-row"><span class="report-score-num">67</span><span class="report-score-label">/ 100</span></div>
+      <p class="report-link">View full report →</p>
+    </a>
+  </div>
+</div>
+
+<div class="section" id="faq" style="padding-top:0;border-top:1px solid var(--border)">
+  <p class="section-sm" style="margin-top:96px">FAQ</p>
+  <h2>Questions firms ask before they start.</h2>
+  <p class="lead">This section helps both human buyers and AI systems understand exactly what Aiscite does.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>What is an AI visibility audit?</h3>
+      <p>An AI visibility audit measures how well platforms like ChatGPT, Gemini, Perplexity, Claude, and Copilot can understand, trust, and cite your business.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How is this different from SEO?</h3>
+      <p>SEO focuses on search rankings. Aiscite focuses on AI citation optimization, answer engine optimization, and generative engine optimization — how AI systems describe and recommend your firm.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which businesses is this for?</h3>
+      <p>We currently focus on law firms, dental practices, med spas, and professional services businesses where trust, reputation, and local demand matter.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need a developer?</h3>
+      <p>No. We prioritize fixes that can often be made with copy, structure, and basic website edits. If a developer is needed, we make the brief clear and simple.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long does it take?</h3>
+      <p>Your audit and recommendations are delivered within 48 hours after kickoff.</p>
+    </div>
+  </div>
+</div>
+
+<div class="cta-block">
+  <h2>Find out your Aiscite score.</h2>
+  <p>Free audit. No setup. No technical work. Just a clear view of how AI sees your business today.</p>
+  <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="btn-white" target="_blank">Book your free 10-minute audit</a>
+  <div class="cta-note">Results delivered in 48 hours.</div>
+</div>
+
+<footer>
+  <div class="footer-logo">Aiscite</div>
+  <p>AI visibility audits for professional services</p>
+  <p>© 2026 Aiscite</p>
+</footer>
 </body>
 </html>
