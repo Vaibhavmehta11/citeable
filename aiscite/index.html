@@ -79,10 +79,11 @@
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text);
-    height: 38px;
-    width: 42px;
+    height: 42px;
+    width: 46px;
     display:flex; align-items:center; justify-content:center;
     padding: 0;
+    font-size: 18px;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
@@ -177,6 +178,9 @@
   footer { border-top: 1px solid var(--border); padding: 30px 28px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .footer-logo { font-size: 15px; font-weight: 800; }
   footer p { font-size: 13px; color: var(--muted); }
+
+  .theme-float { position: fixed; right: 18px; bottom: 18px; z-index: 120; border: 1px solid var(--border); background: var(--bg2); color: var(--text); height: 52px; width: 52px; border-radius: 999px; display:flex; align-items:center; justify-content:center; font-size: 20px; cursor:pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+
   @media (max-width: 720px) {
     .industries, .proof-grid { grid-template-columns: 1fr 1fr; }
     .bar-row { grid-template-columns: 1fr; gap: 8px; }
@@ -289,6 +293,7 @@
 </div>
 <div class="cta-block"><h2>See how AI sees your business.</h2><p>Free walkthrough. No setup. No technical work. Just a clear view of how AI understands, trusts, and cites you today.</p><a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="btn-white" target="_blank">Get your free Aiscite walkthrough</a><div class="cta-note">Free 10-minute walkthrough. Audit delivery within 48 hours.</div></div>
 <footer><div class="footer-logo">Aiscite</div><p>AI visibility audits for trust-driven businesses</p><p>© 2026 Aiscite</p></footer>
+<button class="theme-float" id="themeFloat" aria-label="Toggle theme"><span id="themeIconFloat">🌙</span></button>
 <script>
 (function () {
   const root = document.documentElement;
@@ -298,13 +303,16 @@
   function sync() {
     const dark = root.getAttribute('data-theme') === 'dark';
     document.getElementById('themeIcon').textContent = dark ? '☀️' : '🌙';
+    document.getElementById('themeIconFloat').textContent = dark ? '☀️' : '🌙';
   }
-  btn.addEventListener('click', function () {
+  function toggleTheme() {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('aiscite-theme', next);
     sync();
-  });
+  }
+  btn.addEventListener('click', toggleTheme);
+  document.getElementById('themeFloat').addEventListener('click', toggleTheme);
   sync();
 })();
 </script>
