@@ -208,7 +208,7 @@
     <a href="#proof" class="nav-link">What you get</a>
     <a href="#faq" class="nav-link">FAQ</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">Dark mode</span></button>
-    <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="nav-btn" target="_blank">Free walkthrough</a>
+    <a href="#contact" class="nav-btn">Get in touch</a>
   </div>
 </nav>
 <div class="hero">
@@ -294,17 +294,15 @@
     <div class="faq-item"><h3>How long does it take?</h3><p>Your audit and recommendations are typically delivered within 48 hours after kickoff.</p></div>
   </div>
 </div>
-<div class="cta-block">
+<div class="cta-block" id="contact">
   <h2>See how AI sees your business.</h2>
-  <p>Free walkthrough. No setup. No technical work. Just a clear view of how AI understands, trusts, and cites you today.</p>
-  <a href="https://calendly.com/vaibhavmeh/citeable-10-min-walkthrough" class="btn-white" target="_blank">Book your free walkthrough</a>
-  <div class="cta-note">Free 10-minute walkthrough. Audit delivery within 48 hours.</div>
-  <div style="margin-top:40px; border-top:1px solid rgba(255,255,255,0.15); padding-top:32px;">
-    <p style="font-size:15px; margin-bottom:20px; color:inherit; opacity:0.8;">Prefer to reach out directly? Send us a note.</p>
-    <form id="contactForm" action="https://formsubmit.co/vm@aiscite.com" method="POST" style="display:flex; flex-direction:column; gap:12px; max-width:420px; margin:0 auto; text-align:left;">
+  <p>Free audit. No setup. No technical work. Just a clear view of how AI understands, trusts, and cites you today.</p>
+  <div style="margin-top:32px;">
+    <form id="contactForm" action="https://formsubmit.co/45dd78cff8c41d02d6531ec326703c63" method="POST" style="display:flex; flex-direction:column; gap:12px; max-width:420px; margin:0 auto; text-align:left;">
       <input type="hidden" name="_subject" value="Aiscite inquiry">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://vaibhavmehta11.github.io/aiscite/?thanks=1">
+      <input type="hidden" name="_replyto" value="vm@aiscite.com">
+      <input type="hidden" name="_next" value="https://aiscite.com/?thanks=1">
       <input type="text" name="name" placeholder="Your name" required
         style="padding:13px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.08); color:inherit; font-size:15px; outline:none; font-family:inherit;">
       <input type="text" name="business" placeholder="Business name" required
@@ -314,17 +312,9 @@
       <input type="email" name="email" placeholder="Your email" required
         style="padding:13px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.08); color:inherit; font-size:15px; outline:none; font-family:inherit;">
       <button type="submit"
-        style="padding:14px 24px; border-radius:10px; background:#ffffff; color:#101010; font-weight:700; font-size:15px; border:none; cursor:pointer; font-family:inherit;">Send message</button>
-      <p id="formSuccess" style="display:none; color:#6ee7b7; font-size:14px; text-align:center; margin:4px 0 0;">Message sent. We will be in touch within 24 hours.</p>
+        style="padding:14px 24px; border-radius:10px; background:#ffffff; color:#101010; font-weight:700; font-size:15px; border:none; cursor:pointer; font-family:inherit;">Get your free audit</button>
     </form>
-    <script>
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var form = this;
-        fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}})
-          .then(function(r){ if(r.ok){ form.reset(); document.getElementById('formSuccess').style.display='block'; } });
-      });
-    </script>
+    <p style="margin-top:14px; font-size:13px; opacity:0.6;">Free audit delivered within 48 hours.</p>
   </div>
 </div>
 <footer><div class="footer-logo">Aiscite</div><p>AI visibility audits for trust-driven businesses</p><p>© 2026 Aiscite</p></footer>
