@@ -3,71 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://aiscite.com/privacy.html">
+<link rel="canonical" href="https://aiscite.com/">
 <title>Privacy Policy — Aiscite</title>
-<meta name="description" content="Aiscite privacy policy — how we collect, use, and protect your information.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
-  html[data-theme="light"] { --bg: #ffffff; --text: #111111; --muted: #666870; --border: #e7e7ea; }
-  html[data-theme="dark"] { --bg: #0d0d0f; --text: #f4f4f5; --muted: #a1a1aa; --border: #27272a; }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: var(--bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .nav-logo { color: var(--text); text-decoration: none; font-weight: 800; font-size: 16px; letter-spacing: -0.4px; }
-  .nav-right { display: flex; align-items: center; gap: 14px; }
-  .nav-btn { text-decoration: none; background: var(--text); color: var(--bg); padding: 9px 16px; border-radius: 12px; font-size: 14px; font-weight: 600; }
-  .theme-toggle { border: 1px solid var(--border); background: var(--bg); color: var(--text); height: 40px; padding: 0 10px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; }
-  main { max-width: 680px; margin: 100px auto 80px; padding: 0 28px; }
-  h1 { font-size: 32px; font-weight: 800; margin-bottom: 32px; letter-spacing: -1px; }
-  h2 { font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 12px; }
-  p { color: var(--muted); margin-bottom: 16px; }
-  a { color: var(--text); }
-  footer { border-top: 1px solid var(--border); padding: 30px 28px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .footer-logo { font-size: 15px; font-weight: 800; }
-  footer p { font-size: 13px; color: var(--muted); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+html[data-theme="light"] {
+  --bg: #ffffff; --bg2: #f6f6f7; --bg3: #f0f0f2;
+  --text: #111111; --muted: #666870; --border: #c2c5cc;
+  --btnBg: #111111; --btnText: #ffffff;
+  --navBg: rgba(255,255,255,0.86);
+}
+html[data-theme="dark"] {
+  --bg: #0d0d0f; --bg2: #141416; --bg3: #1b1b1f;
+  --text: #f4f4f5; --muted: #a1a1aa; --border: #27272a;
+  --btnBg: #f4f4f5; --btnText: #101010;
+  --navBg: rgba(13,13,15,0.84);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.2s, color 0.2s; }
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 60px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; background: var(--navBg); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { color: var(--text); text-decoration: none; font-weight: 800; font-size: 16px; letter-spacing: -0.4px; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-link { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; cursor: pointer; }
+.nav-link:hover { color: var(--text); }
+.nav-btn {
+  text-decoration: none; background: var(--btnBg); color: var(--btnText);
+  padding: 9px 16px; border-radius: 12px; font-weight: 700; font-size: 14px;
+  transition: opacity 0.15s; display: inline-block;
+}
+.nav-btn:hover { opacity: 0.9; }
+.theme-toggle {
+  display: inline-flex; align-items: center;
+  border: 1.5px solid var(--border); background: var(--bg); color: var(--text);
+  height: 34px; padding: 0 14px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font);
+  transition: border-color 0.15s, background 0.15s;
+}
+.theme-toggle:hover { background: var(--bg2); }
+.content { max-width: 720px; margin: 0 auto; padding: 120px 28px 80px; }
+h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 12px; }
+.meta { color: var(--muted); font-size: 14px; margin-bottom: 48px; }
+h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; margin: 40px 0 12px; }
+p { color: var(--muted); font-size: 15px; line-height: 1.75; margin-bottom: 16px; max-width: 640px; }
+a { color: var(--text); }
+footer {
+  border-top: 1px solid var(--border); padding: 28px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.footer-logo { font-size: 15px; font-weight: 800; }
+footer p { font-size: 13px; color: var(--muted); }
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--text); border-radius: 2px; transition: all 0.2s;
+}
+.mobile-menu {
+  display: none; position: fixed; top: 60px; left: 0; right: 0;
+  background: var(--navBg); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px; z-index: 101; flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 15px; font-weight: 600; color: var(--text);
+  text-decoration: none; padding: 13px 0; border-bottom: 1px solid var(--border);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+@media (max-width: 760px) {
+  .hamburger { display: flex; }
+  .nav-right .nav-link { display: none !important; }
+  .nav-btn { display: none !important; }
+}
 </style>
 </head>
 <body>
 <nav>
   <a href="/" class="nav-logo">Aiscite</a>
   <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">Dark</span></button>
+    <button class="theme-toggle" id="themeToggle"><span id="themeIcon">Dark</span></button>
     <a href="https://calendly.com/vaibhavmeh/aiscite-introduction" class="nav-btn" target="_blank">Book free walkthrough</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<main>
-<h1>Privacy Policy</h1>
-<p>Last updated: April 2026</p>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="https://calendly.com/vaibhavmeh/aiscite-introduction" target="_blank">Book free walkthrough →</a>
+</div>
 
-<h2>What we collect</h2>
-<p>When you submit the contact form or request an audit, we collect your name, email address, and business name. We do not collect payment information directly — payments are processed by Stripe.</p>
+<div class="content">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: April 2026</p>
 
-<h2>How we use it</h2>
-<p>Your information is used solely to respond to your inquiry and deliver your audit. We do not sell, rent, or share your information with third parties. We do not send unsolicited marketing emails.</p>
+  <h2>What we collect</h2>
+  <p>When you submit the contact form or request an audit, we collect your name, email address, and business name. We do not collect payment information directly — payments are processed by Stripe.</p>
 
-<h2>Analytics</h2>
-<p>This site uses <a href="https://posthog.com">PostHog</a> for product analytics. PostHog collects anonymised usage data including page views and interactions. You can opt out via PostHog's opt-out mechanism. We use this data only to improve the product — not for advertising.</p>
+  <h2>How we use it</h2>
+  <p>Your information is used solely to respond to your inquiry and deliver your audit. We do not sell, rent, or share your information with third parties. We do not send unsolicited marketing emails.</p>
 
-<h2>Forms and submissions</h2>
-<p>Contact form submissions are processed by <a href="https://formsubmit.co">FormSubmit</a> and delivered to our team email. FormSubmit stores submissions temporarily as part of their delivery process.</p>
+  <h2>Analytics</h2>
+  <p>This site uses <a href="https://posthog.com" target="_blank">PostHog</a> for product analytics. PostHog collects anonymised usage data including page views and interactions. You can opt out via PostHog's opt-out mechanism. We use this data only to improve the product — not for advertising.</p>
 
-<h2>Cookies</h2>
-<p>We store one preference in your browser's localStorage: your light or dark mode choice. This is not a tracking cookie and does not leave your device.</p>
+  <h2>Forms and submissions</h2>
+  <p>Contact form submissions are processed by <a href="https://formsubmit.co" target="_blank">FormSubmit</a> and delivered to our team email. FormSubmit stores submissions temporarily as part of their delivery process.</p>
 
-<h2>Your rights</h2>
-<p>You may request deletion of any data we hold about you by emailing <a href="mailto:info@aiscite.com">info@aiscite.com</a>. We will respond within 30 days.</p>
+  <h2>Cookies</h2>
+  <p>We store one preference in your browser's localStorage: your light or dark mode choice. This is not a tracking cookie and does not leave your device.</p>
 
-<h2>Contact</h2>
-<p>Questions about this policy: <a href="mailto:info@aiscite.com">info@aiscite.com</a></p>
-</main>
+  <h2>Your rights</h2>
+  <p>You may request deletion of any data we hold about you by emailing <a href="mailto:info@aiscite.com">info@aiscite.com</a>. We will respond within 30 days.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:info@aiscite.com">info@aiscite.com</a></p>
+</div>
+
 <footer>
-  <div>
-    <div class="footer-logo">Aiscite</div>
-    <p>AI visibility audits for trust-driven businesses</p>
-    <p>&copy; 2026 Aiscite</p>
-  </div>
+  <div class="footer-logo">Aiscite</div>
+  <p>AI visibility audits for trust-driven businesses</p>
+  <p>© 2026 Aiscite</p>
 </footer>
+
 <script>
 (function () {
   const root = document.documentElement;
@@ -76,16 +149,29 @@
   root.setAttribute('data-theme', saved || 'light');
   function sync() {
     const dark = root.getAttribute('data-theme') === 'dark';
-    document.getElementById('themeIcon').textContent = dark ? 'Light mode' : 'Dark mode';
+    document.getElementById('themeIcon').textContent = dark ? 'Light' : 'Dark';
   }
-  function toggleTheme() {
+  btn.addEventListener('click', function () {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('aiscite-theme', next);
     sync();
-  }
-  btn.addEventListener('click', toggleTheme);
+  });
   sync();
+})();
+</script>
+<script>
+(function() {
+  var btn = document.getElementById("hamburgerBtn");
+  var menu = document.getElementById("mobileMenu");
+  if (!btn || !menu) return;
+  btn.addEventListener("click", function() { menu.classList.toggle("open"); });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.remove("open");
+  });
+  menu.querySelectorAll("a").forEach(function(a) {
+    a.addEventListener("click", function() { menu.classList.remove("open"); });
+  });
 })();
 </script>
 </body>
